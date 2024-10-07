@@ -80,6 +80,7 @@ HTML 5-->
 
     <br><hr>
 
-    <p>RESULTADOS: <?php echo $_SESSION["respuestas"];?></p>
+    <p>RESULTADOS: <?php if(isset($_SESSION["respuestas"])){echo "<br>".$_SESSION["respuestas"];}?>
+    </p>
 </body>
 </html>

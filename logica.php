@@ -48,6 +48,11 @@ function inversion(){
 
 
 function ahorros(){
+    $years = [5, 10, 15, 20, 25];
+    $ahorrosIntAnual = "";
+    $ahorrosInversion = "";
+    $textoFinal = "";
+
     if (isset($_POST["ahorrosIntAnual"])) {
         $ahorrosIntAnual = $_POST["ahorrosIntAnual"];
         $ahorrosIntAnual /= 100;
@@ -57,6 +62,17 @@ function ahorros(){
         $ahorrosInversion = $_POST["ahorrosInversion"];
     }
 
-    $res = $inversion * $inverIntAnual * $year;
-    $_SESSION["respuestas"] = $res;
+    for ($i=0; $i < count($years); $i++) { 
+        $total = ($ahorrosInversion * $years[$i]); 
+        $beneficio = $ahorrosInversion * $ahorrosIntAnual * $years[$i];
+        $res = "* TOTAL: $total, BENEFICIO: $beneficio, EN " . $years[$i] . " años <br>";
+        $textoFinal = $textoFinal . $res;
+    }
+
+    $_SESSION["respuestas"] = $textoFinal;
+}
+
+
+function panaderia(){
+
 }
