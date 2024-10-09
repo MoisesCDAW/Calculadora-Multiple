@@ -21,9 +21,9 @@ HTML 5-->
     <!-- INVERSIÓN. Pide inversión inicial, interés anual, años de inversión = capital después de x años -->
     <form action="logica.php" method="post">
         <p>INVERSION</p>
-        <input type="text" placeholder="Inversion inicial" name="inversion">
-        <input type="text" placeholder="7.5" name="inverIntAnual">
-        <input type="text" placeholder="Años" name="year">
+        <input type="text" placeholder="Inversion inicial" name="inversion" autocomplete="off">
+        <input type="text" placeholder="7.5" name="inverIntAnual" autocomplete="off">
+        <input type="text" placeholder="Años" name="year" autocomplete="off">
         <button value="capital" name="operacion">Enviar</button>
     </form>
 
@@ -32,8 +32,8 @@ HTML 5-->
     <!-- CUENTA DE AHORROS: Pide interés anual, capital inicial = beneficio y total en N años-->
     <form action="logica.php" method="post">
         <p>CUENTA DE AHORROS</p>
-        <input type="text" placeholder="Inversión inicial" name="ahorrosInversion">
-        <input type="text" placeholder="7.5" name="ahorrosIntAnual">
+        <input type="text" placeholder="Inversión inicial" name="ahorrosInversion" autocomplete="off">
+        <input type="text" placeholder="7.5" name="ahorrosIntAnual" autocomplete="off">
         <button value="ahorros" name="operacion">Enviar</button>
     </form>
 
@@ -42,7 +42,7 @@ HTML 5-->
     <!-- PANADERÍA: Pide nº barras vendidas de diferente día = precio barra, descuento y total con descuento -->
     <form action="logica.php" method="post">
         <p>PANADERIA</p>
-        <input type="text" placeholder="Nº Barras de ayer" name="panes">
+        <input type="text" placeholder="Nº Barras de ayer" name="panes" autocomplete="off">
         <button value="panaderia" name="operacion">Enviar</button>
     </form>
 
@@ -51,7 +51,7 @@ HTML 5-->
     <!-- TELÉFONOS:  Pide Num-teléfono = Num-teléfono sin prefijo-->
     <form action="logica.php" method="post">
         <p>TELEFONOS</p>  
-        <input type="text" placeholder="+34-913724710-56" name="telefono">
+        <input type="text" placeholder="+34-913724710-56" name="telefono" autocomplete="off">
         <button value="telefonos" name="operacion">Enviar</button>
     </form>
 
@@ -60,7 +60,7 @@ HTML 5-->
     <!-- MAYOR DE EDAD:  Pide edad = true >=18 o false <18-->
     <form action="logica.php" method="post">
         <p>MAYOR DE EDAD</p>  
-        <input type="text" placeholder="Ingresa tu edad" name="edad">
+        <input type="text" placeholder="Ingresa tu edad" name="edad" autocomplete="off">
         <button value="mayor" name="operacion">Enviar</button>
     </form>
     
@@ -69,11 +69,13 @@ HTML 5-->
     <!-- MAYOR DE EDAD:  Pide 2 contraseñas = si coinciden y si cumplen los requisitos-->
     <form action="logica.php" method="post">
         <p>CONTRASEÑAS</p>  
-        <input type="text" placeholder="Ingresa una contraseña" name="contra1">
-        <input type="text" placeholder="Repítela" name="contra2">
+        <!-- <input type="text" placeholder="Ingresa una contraseña" name="contra1" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$">
+        <input type="text" placeholder="Repítela" name="contra2" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$"> -->
+        <input type="password" placeholder="Ingresa una contraseña" name="contra1">
+        <input type="password" placeholder="Repítela" name="contra2">
         <button value="contrasena" name="operacion">Enviar</button>
         <p>            
-            NOTA: Deben ser iguales, mínimo 10 caracteres, con mayusculas y minusculas,<br>
+            REQUISITOS: Deben ser iguales, mínimo 10 caracteres, con mayusculas y minusculas,<br>
             algun numero y algun simbolo.
         </p>
     </form>
