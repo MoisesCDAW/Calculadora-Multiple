@@ -32,8 +32,8 @@ HTML 5-->
     <!-- CUENTA DE AHORROS: Pide interés anual, capital inicial = beneficio y total en N años-->
     <form action="logica.php" method="post">
         <p>CUENTA DE AHORROS</p>
-        <input type="text" placeholder="7.5" name="ahorrosIntAnual">
         <input type="text" placeholder="Inversión inicial" name="ahorrosInversion">
+        <input type="text" placeholder="7.5" name="ahorrosIntAnual">
         <button value="ahorros" name="operacion">Enviar</button>
     </form>
 
@@ -42,7 +42,7 @@ HTML 5-->
     <!-- PANADERÍA: Pide nº barras vendidas de diferente día = precio barra, descuento y total con descuento -->
     <form action="logica.php" method="post">
         <p>PANADERIA</p>
-        <input type="text" placeholder="Nº Barras de ayer">
+        <input type="text" placeholder="Nº Barras de ayer" name="panes">
         <button value="panaderia" name="operacion">Enviar</button>
     </form>
 
@@ -51,26 +51,26 @@ HTML 5-->
     <!-- TELÉFONOS:  Pide Num-teléfono = Num-teléfono sin prefijo-->
     <form action="logica.php" method="post">
         <p>TELEFONOS</p>  
-        <input type="text" placeholder="+34-913724710-56">
+        <input type="text" placeholder="+34-913724710-56" name="telefono">
         <button value="telefonos" name="operacion">Enviar</button>
     </form>
 
     <br>
 
     <!-- MAYOR DE EDAD:  Pide edad = true >=18 o false <18-->
-    <form action="" method="post">
+    <form action="logica.php" method="post">
         <p>MAYOR DE EDAD</p>  
-        <input type="text" placeholder="Ingresa tu edad">
-        <button value="edad" name="operacion">Enviar</button>
+        <input type="text" placeholder="Ingresa tu edad" name="edad">
+        <button value="mayor" name="operacion">Enviar</button>
     </form>
     
     <br>
 
     <!-- MAYOR DE EDAD:  Pide 2 contraseñas = si coinciden y si cumplen los requisitos-->
-    <form action="" method="post">
+    <form action="logica.php" method="post">
         <p>CONTRASEÑAS</p>  
-        <input type="text" placeholder="Ingresa una contraseña">
-        <input type="text" placeholder="Repítela">
+        <input type="text" placeholder="Ingresa una contraseña" name="contra1">
+        <input type="text" placeholder="Repítela" name="contra2">
         <button value="contrasena" name="operacion">Enviar</button>
         <p>            
             NOTA: Deben ser iguales, mínimo 10 caracteres, con mayusculas y minusculas,<br>
