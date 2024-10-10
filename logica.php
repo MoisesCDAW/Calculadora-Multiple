@@ -5,6 +5,9 @@ HTML 5 -->
 <?php 
 session_start();
 
+/**
+ * Lee la clave "operacion" del $_POST y evalúa su valor
+ */
 function inicio(){
     if (isset($_POST["operacion"])) {
         $operacion = $_POST["operacion"];
@@ -38,6 +41,9 @@ function inicio(){
 inicio();
 
 
+/**
+ * Calcula el benificio de un capital inicial en N años a base de X interés
+ */
 function inversion(){
     $inversion="";
     $inverIntAnual="";
@@ -79,6 +85,10 @@ function inversion(){
 }
 
 
+/**
+ * Calcula el benificio de un capital inicial a base de X interés en 25 años.
+ * Muestra de 5 en 5 años
+ */
 function ahorros(){
     $years = [5, 10, 15, 20, 25];
     $ahorrosIntAnual = "";
@@ -117,6 +127,9 @@ function ahorros(){
 }
 
 
+/**
+ * Calcula el precio de N panes que no son del día aplicando un descuento
+ */
 function panaderia(){
     if (isset($_POST["panes"])) {
         $NumPanes = $_POST["panes"];
@@ -135,6 +148,9 @@ function panaderia(){
 }
 
 
+/**
+ * Elimina el prefijo y la extensión de un número de teléfono
+ */
 function telefonos(){
     $valido = true;
 
@@ -197,6 +213,9 @@ function telefonos(){
 }
 
 
+/**
+ * PENDIENTE
+ */
 function mayor(){
     $mayor = "Si";
 
@@ -216,18 +235,22 @@ function mayor(){
 }
 
 
+/**
+ * Comprueba si una contraseña cumple ciertos requisitos.
+ * Comprueba también que coincida con la contraseña nuevamente escrita
+ * EXPLICACIÓN EXPRESIÓN REGULAR
+ * 1. (?=.*[a-z]): Asegura que haya al menos una letra minúscula.
+ * 2. (?=.*[A-Z]): Asegura que haya al menos una letra mayúscula.
+ * 3. (?=.*\d): Asegura que haya al menos un dígito.
+ * 4. (?=.*[$@$!%*?&]): Asegura que haya al menos un carácter especial del conjunto $, @, !, %, *, ?, o &.
+ * 5. ([A-Za-z\d$@$!%*?&]|[^ ]): Permite cualquier letra (mayúscula o minúscula), cualquier dígito, 
+ *  o uno de los caracteres especiales mencionados. También permite cualquier carácter que 
+ *  no sea un espacio.
+ * 6. {8,15}: Indica que la longitud total de la cadena debe estar entre 8 y 15 caracteres.
+ * 7. ^ y $: Aseguran que toda la cadena debe coincidir con el patrón, no solo una parte de ella.   
+ */
 function contrasena() {
     $expresion = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){10,15}$/";
-
-    // (?=.*[a-z]): Asegura que haya al menos una letra minúscula.
-    // (?=.*[A-Z]): Asegura que haya al menos una letra mayúscula.
-    // (?=.*\d): Asegura que haya al menos un dígito.
-    // (?=.*[$@$!%*?&]): Asegura que haya al menos un carácter especial del conjunto $, @, !, %, *, ?, o &.
-    // ([A-Za-z\d$@$!%*?&]|[^ ]): Permite cualquier letra (mayúscula o minúscula), cualquier dígito, 
-    //     o uno de los caracteres especiales mencionados. También permite cualquier carácter que 
-    //     no sea un espacio.
-    // {8,15}: Indica que la longitud total de la cadena debe estar entre 8 y 15 caracteres.
-    // ^ y $: Aseguran que toda la cadena debe coincidir con el patrón, no solo una parte de ella.   
 
     if (isset($_POST["contra1"])) {
         $contra1 = $_POST["contra1"];

@@ -60,7 +60,7 @@ HTML 5-->
     <!-- MAYOR DE EDAD:  Pide edad = true >=18 o false <18-->
     <form action="logica.php" method="post">
         <p>MAYOR DE EDAD</p>  
-        <input type="text" placeholder="Ingresa tu edad" name="edad" autocomplete="off">
+        <input type="date" placeholder="Ingresa tu edad" name="edad" autocomplete="off">
         <button value="mayor" name="operacion">Enviar</button>
     </form>
     
