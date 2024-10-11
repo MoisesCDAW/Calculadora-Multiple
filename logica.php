@@ -223,7 +223,7 @@ function telefonos(){
  * "->" se usa para acceder a los métodos del objeto
  */
 function mayor(){
-    $mayor = "Si";
+    $mayor = "Sí";
     $fechaActual = date_create();
     $primeraFecha = "";
     $fecha = "";
@@ -242,9 +242,9 @@ function mayor(){
             $textoFinal = "Fecha inválida";
         }else {
             $diff = date_diff($fechaAux, $fechaActual);
-            $dias = $diff->format("%a");
+            $year = $diff->format("%Y");
 
-            if (($dias)/365.25<18) {
+            if ($year<18) {
                 $mayor = "No";  
             }
 
@@ -253,7 +253,6 @@ function mayor(){
     }
 
     $_SESSION["respuestas"] = $textoFinal;
-    // $_SESSION["respuestas"] = "¿Eres mayor? " . date_diff($edad, $actual);
 }
 
 
