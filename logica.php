@@ -214,24 +214,46 @@ function telefonos(){
 
 
 /**
- * PENDIENTE
+ * Recibe una fecha de nacimiento por Post y comprueba si es mayor de edad o no
+ * Métodos DateTime:
+    * date_create() : DateTime
+    * date_diff() : dateInterval
+ * Para saber más sobre dateInterval: https://www.php.net/manual/es/class.dateinterval.php
+ * Diferentes opciones de formateo de un dateInterval: https://www.php.net/manual/es/dateinterval.format.php
+ * "->" se usa para acceder a los métodos del objeto
  */
 function mayor(){
     $mayor = "Si";
+    $fechaActual = date_create();
+    $primeraFecha = "";
+    $fecha = "";
+    $fechaAux = "";
+    $textoFinal = "";
 
-    if (isset($_POST["edad"])) {
-        $edad = $_POST["edad"];
+    // Fecha de nacimiento mas baja válida con un máximo de 105 años con respecto a la fecha actual
+    $primeraFecha = date_sub(date_create(), new DateInterval("P105Y"));
+
+
+    if (isset($_POST["fecha"])) {
+        $fecha = $_POST["fecha"]; // String: YYYY-MM-DD
+        $fechaAux = date_create($_POST["fecha"]);
+
+        if ($fechaAux<=$primeraFecha || $fechaAux>$fechaActual) {
+            $textoFinal = "Fecha inválida";
+        }else {
+            $diff = date_diff($fechaAux, $fechaActual);
+            $dias = $diff->format("%a");
+
+            if (($dias)/365.25<18) {
+                $mayor = "No";  
+            }
+
+            $textoFinal = "¿Eres mayor de edad si naciste el $fecha ? " . $mayor;
+        }
     }
 
-    if ($edad<18) {
-        $mayor = "No";
-    }
-
-    if ($edad<1 || $edad>105) {
-        $mayor = "Edad inválida";
-    }
-
-    $_SESSION["respuestas"] = "¿Eres mayor? $mayor";
+    $_SESSION["respuestas"] = $textoFinal;
+    // $_SESSION["respuestas"] = "¿Eres mayor? " . date_diff($edad, $actual);
 }
 
 
